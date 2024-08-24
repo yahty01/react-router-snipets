@@ -1,36 +1,39 @@
 import React from 'react';
 import s from "./components/Site.module.css";
+import {Navigate, NavLink, Route, Routes} from "react-router-dom";
 import {PageOne} from "./components/pages/PageOne";
 import {PageTwo} from "./components/pages/PageTwo";
 import {PageThree} from "./components/pages/PageThree";
-import {Navigate, NavLink, Route, Routes} from 'react-router-dom';
 import {Error404} from "./components/pages/Error404";
+import {NavWrapper} from "./_styles";
+
+const PATH = {
+	PAGE1: '/page1',
+	PAGE2: '/page2',
+	PAGE3: '/page3',
+	ERROR: '/undefined',
+	OTHER: '/*'
+} as const
 
 function App() {
 	return (
 		<div>
 			<header className={s.header}><h1>HEADER</h1></header>
-			<div className={s.body}>
+			<div className={s.container}>
 				<nav className={s.nav} id="sidebar">
 					{/*Для перехода по роутам*/}
-					<NavLink
-						className={({isActive}) => isActive ? s.activeNavLink : s.navLink}
-						to="/sneaker/1">adidas</NavLink>
-					<NavLink
-						className={({isActive}) => isActive ? s.activeNavLink : s.navLink}
-						to="/sneaker/2">puma</NavLink>
-					<NavLink
-						className={({isActive}) => isActive ? s.activeNavLink : s.navLink}
-						to="/sneaker/3">abibas</NavLink>
+					<NavWrapper><NavLink to={PATH.PAGE1}>adidas</NavLink></NavWrapper>
+					<NavWrapper> <NavLink to={PATH.PAGE2}>puma</NavLink></NavWrapper>
+					<NavWrapper><NavLink to={PATH.PAGE3}>nike</NavLink></NavWrapper>
 				</nav>
 				<div className={s.content}>
 					{/*Группа роутов*/}
 					<Routes>
-						<Route path="/sneaker/1" element={<PageOne/>}/>
-						<Route path="/sneaker/2" element={<PageTwo/>}/>
-						<Route path="/sneaker/3" element={<PageThree/>}/>
-						<Route path="/sneaker/undefined" element={<Error404/>}/>
-						<Route path="/sneaker/*" element={<Navigate to="/sneaker/undefined"/>}/>
+						<Route path= {PATH.PAGE1} element={<PageOne/>}/>
+						<Route path={PATH.PAGE2} element={<PageTwo/>}/>
+						<Route path={PATH.PAGE3} element={<PageThree/>}/>
+						<Route path={PATH.ERROR} element={<Error404/>}/>
+						<Route path={PATH.OTHER} element={<Navigate to={PATH.ERROR}/>}/>
 					</Routes>
 				</div>
 			</div>
@@ -39,5 +42,5 @@ function App() {
 	);
 }
 
-
 export default App;
+
