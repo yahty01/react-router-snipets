@@ -5,7 +5,7 @@ import {PageOne} from "./components/pages/PageOne";
 import {PageTwo} from "./components/pages/PageTwo";
 import {PageThree} from "./components/pages/PageThree";
 import {Error404} from "./components/pages/Error404";
-import {NavWrapper} from "./_styles";
+import {NavWrapper} from "./components/pages/_styles";
 
 const PATH = {
 	PAGE1: '/page1',
