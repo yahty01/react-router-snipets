@@ -6,14 +6,14 @@ import {PATH} from "../../../app/App";
 
 type Props = {}
 
-export function Sidebar (props: Props) {
+export function Sidebar(props: Props) {
 
-    return (
-        <nav className={s.nav} id="sidebar">
-            {/*Для перехода по роутам*/}
-            <NavWrapper><NavLink to={PATH.ADIDAS}>adidas</NavLink></NavWrapper>
-            <NavWrapper> <NavLink to={PATH.PUMA}>puma</NavLink></NavWrapper>
-            <NavWrapper><NavLink to={PATH.NIKE}>nike</NavLink></NavWrapper>
-        </nav>
-    )
+  return (
+    <nav className={s.nav} id="sidebar">
+      {/*Для перехода по роутам*/}
+      <NavWrapper><NavLink to={PATH.ADIDAS}>adidas</NavLink></NavWrapper>
+      <NavWrapper> <NavLink to={PATH.PUMA}>puma</NavLink></NavWrapper>
+      <NavWrapper><NavLink to={PATH.NIKE}>nike</NavLink></NavWrapper>
+    </nav>
+  )
 }

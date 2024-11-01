@@ -1,5 +1,6 @@
 html {
   scrollbar-width: none; /* Firefox */
+  background-color: #000000
 }
 
 ::-webkit-scrollbar {

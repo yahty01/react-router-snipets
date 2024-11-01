@@ -1,10 +1,14 @@
 import React from 'react';
 import s from '../Site.module.css'
+import {Link, NavLink} from "react-router-dom";
+import {PATH} from "../../../app/App";
 
 export const Error404 = () => {
     return (
-        <div className={s.sneaker_error}>
-            Error404
+        <div  style={{fontSize: "1rem", display: "flex", flexDirection: "column"}}
+          className={s.sneaker_error}>
+          Oops, it looks like you’ve ended up somewhere unexpected. Shall we head back?
+          <NavLink style={{color: "wheat"}} to={PATH.WELCOME} >Yes!</NavLink>
         </div>
     );
 };
