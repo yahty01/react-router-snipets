@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const PageThree = () => {
+export const Nike = () => {
 	return (
 		<div style={{paddingLeft: '15px', paddingRight: '15px'}}>
 			<h2>NIKE</h2>
