@@ -1,18 +1,18 @@
 import React from 'react';
-import {ProductSneaker} from "../product/Product";
+import {ProductSneaker} from "../../types/types";
 
 type Props = {
-  products: ProductSneaker[]
+  product: ProductSneaker
 }
 
-function ProductList(props: Props) {
+export function PhotoViewer(props: Props) {
   return (
     <div style={{display: "flex", justifyContent: "center" ,width: "100%"}}>
-      {props.products.map((product: ProductSneaker, index: number) => {
+      {props.product.picture.map((photo, index: number) => {
         return (
           <img
-            src={product.picture}
-            alt={product.model}
+            src={photo}
+            alt={props.product.model}
             style={{height: "auto", margin: "auto", flexGrow: "1", width: "30%"}}
             key={index} />
         )
@@ -21,4 +21,3 @@ function ProductList(props: Props) {
   );
 }
 
-export default ProductList;

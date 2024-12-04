@@ -1,0 +1,15 @@
+.container {
+    background-color: #7c2323;
+}
+.textContainer {
+    display: flex;
+    min-height: 50px;
+    flex-direction: column;
+}
+
+.price {
+    align-self: flex-end;
+}
+.collection {
+    align-self: center;
+}

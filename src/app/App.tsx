@@ -9,7 +9,8 @@ export const PATH = {
   PUMA: '/puma',
   NIKE: '/nike',
   ERROR: '/undefined',
-  OTHER: '/*'
+  OTHER: '/*',
+  PRODUCT: '/product',
 } as const
 
 function App() {
