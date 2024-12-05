@@ -1,16 +1,19 @@
 import React from 'react';
-import {products} from "../../../../app/data/Data";
+import {AllProducts, ProductSneaker} from "../../../../app/data/Data";
 import {Link} from "react-router-dom";
-import {PATH} from "../../../../app/App";
 
-export const Nike = () => {
-	const nikeProduct = products.filter(product => product.brand === "nike")
+type Props = {
+	allSneakers: AllProducts
+}
+
+export const Nike = (props: Props) => {
+	const sneakers: ProductSneaker[] = [...props.allSneakers['nike']]
 
 	return (
-		<div style={{paddingLeft: '15px', paddingRight: '15px', display: 'inline-block'}}>
+		<div style={{paddingLeft: '15px', paddingRight: '15px', display: 'inline-block', minHeight: '80vh'}}>
 			<h2 style={{textAlign: "center"}}> NIKE </h2>
-			{nikeProduct.map(product => (
-				<Link to={`${PATH.PRODUCT}/${product.id}`} key={product.id}>
+			{sneakers.map(product => (
+				<Link to={`/${product.brand}/${product.id}`} key={product.id}>
 					<img
 						style={{width: "30%", height: "auto", margin: "0 10px"}}
 						src={product.picture[0]}

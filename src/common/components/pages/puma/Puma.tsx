@@ -1,16 +1,19 @@
 import React from 'react';
-import {products} from "../../../../app/data/Data";
 import {Link} from "react-router-dom";
-import {PATH} from "../../../../app/App";
+import {AllProducts, ProductSneaker} from "../../../../app/data/Data";
 
-export const Puma = () => {
-  const pumaProducts = products.filter(product => product.brand === "puma")
+type Props = {
+  allSneakers: AllProducts
+}
+//todo: Небходимо сделать компоненту контролируемой !!!
+export const Puma = (props: Props) => {
+  const sneakers: ProductSneaker[] = [...props.allSneakers['puma']]
 
   return (
-    <div style={{paddingLeft: '15px', paddingRight: '15px', display: 'inline-block'}}>
+    <div style={{paddingLeft: '15px', paddingRight: '15px', display: 'inline-block', minHeight: '80vh'}}>
       <h2 style={{textAlign: "center"}}> PUMA </h2>
-      {pumaProducts.map(product => (
-        <Link to={`${PATH.PRODUCT}/${product.id}`} key={product.id}>
+      {sneakers.map(product => (
+        <Link to={`/${product.brand}/${product.id}`} key={product.id}>
           <img
             style={{width: "30%", height: "auto", margin: "0 10px"}}
             src={product.picture[0]}

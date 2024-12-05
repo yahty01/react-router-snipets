@@ -8,8 +8,11 @@ import React from "react";
 import {PATH} from "../../../app/App";
 import WelcomeScreen from "../pages/WelcomeScreen";
 import {Product} from "../Product/Product";
+import {AllProducts} from "../../../app/data/Data";
 
-type Props = {}
+type Props = {
+  allProducts: AllProducts;
+}
 
 export function Content(props: Props) {
   return (
@@ -17,12 +20,12 @@ export function Content(props: Props) {
       {/*Группа роутов*/}
       <Routes>
         <Route path={PATH.WELCOME} element={<WelcomeScreen/>} />
-        <Route path={PATH.ADIDAS} element={<Adidas/>}/>
-        <Route path={PATH.PUMA} element={<Puma/>}/>
-        <Route path={PATH.NIKE} element={<Nike/>}/>
+        <Route path={PATH.ADIDAS} element={<Adidas allSneakers={props.allProducts}/>}/>
+        <Route path={PATH.PUMA} element={<Puma allSneakers={props.allProducts}/>}/>
+        <Route path={PATH.NIKE} element={<Nike allSneakers={props.allProducts}/>}/>
+        <Route path={`/:brand/:id`} element={<Product products={props.allProducts}/>}/>
         <Route path={PATH.ERROR} element={<Error404/>}/>
         <Route path={PATH.OTHER} element={<Navigate to={PATH.ERROR}/>}/>
-        <Route path={`${PATH.PRODUCT}/:id`} element={<Product/>}/>
       </Routes>
     </div>
   )
