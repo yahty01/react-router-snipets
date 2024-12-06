@@ -12,6 +12,7 @@ export const PATH = {
   ERROR: '/undefined',
   OTHER: '/*',
   PRODUCT: '/product',
+  PRICES: '/prices',
 } as const
 
 function App() {

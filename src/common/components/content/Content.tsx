@@ -9,6 +9,7 @@ import {PATH} from "../../../app/App";
 import WelcomeScreen from "../pages/WelcomeScreen";
 import {Product} from "../Product/Product";
 import {AllProducts} from "../../../app/data/Data";
+import {Prices} from "../pages/Prices/Prices";
 
 type Props = {
   allProducts: AllProducts;
@@ -23,6 +24,7 @@ export function Content(props: Props) {
         <Route path={PATH.ADIDAS} element={<Adidas allSneakers={props.allProducts}/>}/>
         <Route path={PATH.PUMA} element={<Puma allSneakers={props.allProducts}/>}/>
         <Route path={PATH.NIKE} element={<Nike allSneakers={props.allProducts}/>}/>
+        <Route path={PATH.PRICES} element={<Prices/>}/>
         <Route path={`/:brand/:id`} element={<Product products={props.allProducts}/>}/>
         <Route path={PATH.ERROR} element={<Error404/>}/>
         <Route path={PATH.OTHER} element={<Navigate to={PATH.ERROR}/>}/>
