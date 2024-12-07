@@ -2,7 +2,7 @@ import s from "../Site.module.css";
 import {NavWrapper} from "../pages/_styles";
 import {NavLink} from "react-router-dom";
 import React from "react";
-import {PATH} from "../../../app/App";
+import {PATH} from "../../../app/routes/path";
 
 type Props = {}
 

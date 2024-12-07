@@ -1,7 +1,7 @@
 import React from 'react';
 import s from '../Site.module.css'
-import {Link, NavLink} from "react-router-dom";
-import {PATH} from "../../../app/App";
+import {NavLink} from "react-router-dom";
+import {PATH} from "../../../app/routes/path";
 
 export const Error404 = () => {
     return (
