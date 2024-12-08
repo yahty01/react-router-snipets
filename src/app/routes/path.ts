@@ -7,4 +7,5 @@ export const PATH = {
   OTHER: '/*',
   PRODUCT: '/:brand/:id',
   PRICES: '/prices',
+  PROTECTED: '/protected',
 } as const

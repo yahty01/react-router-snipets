@@ -6,12 +6,11 @@ import {AllProducts, ProductSneaker} from "../../../app/data/Data";
 type Props = {
   products: AllProducts
 }
-
-export function Product(props: Props) {
-  const products = props.products;
+//todo: Доделать обработку неправильных маршрутов
+export function Product({products}: Props) {
   const {brand, id} = useParams()
   if (brand && id) {
-    const product: ProductSneaker = {...products[brand].filter(el => el.id === id)[0]}
+    const product: ProductSneaker = products[brand].filter(el => el.id === id)[0]
     return (
       <div className={s.container}>
         {product ?
@@ -25,10 +24,9 @@ export function Product(props: Props) {
           </>
           : <span>This model is not available, sorry for the inconvenience</span>
         }
-
       </div>
     )
-  } else return <span>ELSE model is not available, sorry for the inconvenience</span>
+  } else return <span>This! model is not available, sorry for the inconvenience</span>
 
 
 }
