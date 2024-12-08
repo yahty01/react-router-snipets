@@ -8,4 +8,5 @@ export const PATH = {
   PRODUCT: '/sneakers/:brand/:id',
   PRICES: '/prices',
   PROTECTED: '/protected',
+  LOGIN: '/login',
 } as const

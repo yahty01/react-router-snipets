@@ -11,8 +11,9 @@ import App from "../App";
 import {PATH} from "./path";
 import {ProtectedPage} from "../../common/components/pages/Protected/ProtectedPage";
 import {WelcomeScreen} from "../../common/components/pages/WelcomeScreen";
-import {ProtectedRoute} from "./ProtectedRoute";
+import {PrivetRoute} from "./PrivateRoute";
 import {Navigate, RouteObject} from "react-router";
+import LoginForm from "../../common/components/LoginForm/LoginForm";
 
 //todo: Выписать типизацию\найти в документации
 export const publicRoutes: RouteObject[] = [
@@ -45,22 +46,27 @@ export const publicRoutes: RouteObject[] = [
     path: PATH.ERROR,
     element: <Error404/>
   },
+  {
+    path: PATH.LOGIN,
+    element: <LoginForm />
+  }
 ]
 export const privateRoutes: RouteObject[] = [{
   path: PATH.PROTECTED,
-  element: <ProtectedRoute auth={false}><ProtectedPage/></ProtectedRoute>,
+  element: <ProtectedPage/>,
 }]
-//[][]Массив массивов
-//...rest собирает аргументы в массив
-export const combinedRoutes = (...routeGroups: RouteObject[][]): RouteObject[] => {
-  return routeGroups.flat(); // Разварачивает все массивы на один уровень вложенности
-};
-//todo: закончить  видео с 11 минуты.
+
 export const router = createHashRouter([
   {
     path: "/",
     element: <App/>,
-    children: combinedRoutes(publicRoutes, privateRoutes),
+    children: [
+      ...publicRoutes,
+      {
+        element: <PrivetRoute auth={false}/>,
+        children: [...privateRoutes]
+      }
+    ],
   },
   {
     path: "*",
