@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import React, {CSSProperties, ReactNode} from "react";
+import LoginForm from "../../common/components/LoginForm/LoginForm";
 
 type Props = {
   children: ReactNode;
@@ -8,7 +9,13 @@ type Props = {
 export const ProtectedRoute = ({ children, auth }: Props) => {
   return (
     <>
-      {auth ? children : <div>You are not authorized to view this page.</div>}
+      {auth ? children : <div style={container}> <LoginForm/> </div>}
     </>
   );
+};
+
+const container: CSSProperties = {
+  display: 'flex',
+  height: '100%',
+  alignItems: 'center',
 };

@@ -1,11 +1,11 @@
 export const PATH = {
   WELCOME: "/",
-  ADIDAS: '/adidas',
-  PUMA: '/puma',
-  NIKE: '/nike',
-  ERROR: '/undefined',
+  ADIDAS: '/sneakers/adidas',
+  PUMA: '/sneakers/puma',
+  NIKE: '/sneakers/nike',
+  ERROR: '/error',
   OTHER: '/*',
-  PRODUCT: '/:brand/:id',
+  PRODUCT: '/sneakers/:brand/:id',
   PRICES: '/prices',
   PROTECTED: '/protected',
 } as const

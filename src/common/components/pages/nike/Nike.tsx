@@ -30,7 +30,7 @@ export const Nike = (props: Props) => {
     <div style={{paddingLeft: '15px', paddingRight: '15px', display: 'inline-block', minHeight: '80vh'}}>
       <h2 style={{textAlign: "center"}}> NIKE </h2>
       <StyledDiv>{sneakers.map(product => (
-        <Link to={`/${product.brand}/${product.id}`} key={product.id}>
+        <Link to={`/sneakers/${product.brand}/${product.id}`} key={product.id}>
           <img
             src={product.picture[0]}
             alt={product.model}/>
