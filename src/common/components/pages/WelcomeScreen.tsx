@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = {}
 
-function WelcomeScreen(props: Props) {
+export const WelcomeScreen = (props: Props) => {
   return (
     <div style={{
       paddingLeft: '15px',
@@ -19,4 +19,3 @@ function WelcomeScreen(props: Props) {
   );
 }
 
-export default WelcomeScreen;

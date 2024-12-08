@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {AllProducts, ProductSneaker} from "../../../../app/data/Data";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
+import {Outlet} from "react-router";
 
 type Props = {
   allSneakers: AllProducts;
@@ -29,8 +30,9 @@ export const Adidas = (props: Props) => {
   return (
     <div style={{paddingLeft: '15px', paddingRight: '15px', display: 'inline-block', minHeight: '80vh'}}>
       <h2 style={{textAlign: "center"}}>ADIDAS</h2>
+      <Outlet/>
       <StyledDiv>{sneakers.map(product => (
-        <Link to={`/${product.brand}/${product.id}`} key={product.id}>
+        <Link to={`/sneakers/${product.brand}/${product.id}`} key={product.id}>
           <img
             src={product.picture[0]}
             alt={product.model}
