@@ -4,6 +4,7 @@ import {Sidebar} from "../common/components/sidebar/Sidebar";
 import {Outlet} from "react-router";
 import {Header} from "../common/components/Header/Header";
 import {Footer} from "../common/components/Footer/Footer";
+import {StepNavigator} from "../common/components/StepNavigator/StepNavigator";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Header/>
       <div className={s.container}>
         <Sidebar/>
+        <StepNavigator />
         <div className={s.content}>
           <Outlet/>
         </div>
